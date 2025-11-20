@@ -27,11 +27,12 @@ type AASConfigEntry = {
 
 type Data = {
   config_entries: AASConfigEntry[];
+  max_announcement_len: number;
 };
 
 export const AutomatedAnnouncement = (props) => {
   const { act, data } = useBackend<Data>();
-  const { config_entries = [] } = data;
+  const { config_entries = [], max_announcement_len } = data;
 
   const [search, setSearch] = useState('');
 
@@ -89,12 +90,12 @@ export const AutomatedAnnouncement = (props) => {
                           icon="info"
                           tooltip={
                             (entry.generalTooltip
-                              ? entry.generalTooltip + '\n'
+                              ? `${entry.generalTooltip}\n`
                               : '') +
                             Object.entries(entry.varsAndTooltipsMap)
                               .map(
                                 ([varName, tooltip]) =>
-                                  '%' + varName + ' ' + tooltip,
+                                  `%${varName} ${tooltip}`,
                               )
                               .join('\n')
                           }
@@ -130,6 +131,7 @@ export const AutomatedAnnouncement = (props) => {
                                 fluid
                                 value={announcementLine}
                                 disabled={!entry.modifiable}
+                                maxLength={max_announcement_len}
                                 onBlur={(value) =>
                                   act('Text', {
                                     entryRef: entry.entryRef,

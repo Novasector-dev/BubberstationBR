@@ -30,7 +30,7 @@
 
 /datum/armament_entry/company_import/deforest/first_aid_kit/robo_repair_super
 	item_type = /obj/item/storage/medkit/robotic_repair/preemo/stocked
-	cost = PAYCHECK_COMMAND * 8
+	cost = PAYCHECK_COMMAND * 4.5
 
 /datum/armament_entry/company_import/deforest/first_aid_kit/first_responder
 	item_type = /obj/item/storage/backpack/duffelbag/deforest_surgical/stocked
@@ -289,6 +289,10 @@
 
 /datum/armament_entry/company_import/deforest/implant/janitor
 	item_type = /obj/item/organ/cyberimp/arm/toolkit/janitor
+	cost = PAYCHECK_COMMAND * 5
+
+/datum/armament_entry/company_import/deforest/implant/paperwork //Bubber edit, arm implant but for bureaucrats
+	item_type = /obj/item/organ/cyberimp/arm/toolkit/paperwork
 	cost = PAYCHECK_COMMAND * 5
 
 // Modsuit Modules from the medical category, here instead of in Nakamura because nobody buys from this company
